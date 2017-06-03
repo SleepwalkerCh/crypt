@@ -7,7 +7,7 @@
 	$conn=mysql_connect($mysql_server_name,$mysql_username,$mysql_password) or die("error connecting"); 
 	mysql_query("set names 'utf8'"); 
 	mysql_select_db($mysql_database, $conn); //打开数据库
-	$sql ="delete from shop_list where shop_num = '00001'"; //SQL语句
+	$sql ="delete from shop_list where shop_num = '11111'"; //SQL语句
 	$a;
 	$rs = mysql_query($sql,$conn);
     $num = mysql_affected_rows();
