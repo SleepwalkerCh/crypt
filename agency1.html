@@ -8,10 +8,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<style type="text/css">
-		body{background-color: #e8f5e9};
+	body{background-color: #e8f5e9};
 	</style>
 </head>
 <body>
+	<div id="modal1"  class="modal">
+		<div class="modal-content">
+			<p id="codebox">dd</p>
+		</div>
+		<div class="modal-footer">
+	      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">close</a>
+	    </div>
+	</div>
+
 	<nav class="green darken-4">
 		<div class="nav-wrapper">
 			<a href="#" class="brand-logo center">傻方 Agency</a>
@@ -22,6 +31,7 @@
 			</ul>
 		</div>
 	</nav>
+
 	<div class="row container" style="margin-top: 60px">
 		<div class="col s12 m4">
 			<div class="card green darken-4">
@@ -42,77 +52,72 @@
 				<div class="card-action center">
 					<img src="8.jpg" style="width: 100px; height: 100px" >
 					<br>
- 					<a href="#" id="hh" class="waves-effect waves-light btn green"><i class="material-icons left">search</i>Check</a>
- 					<p id="codebox"></p>
- 				</div>
+					<a href="#" id="hh" class="waves-effect waves-light btn green"><i class="material-icons left">search</i>Check</a>
+					
+					
+
+				</div>
 			</div>
 
 		</div>
 		<div class="col s12 m8 ">
 
-		        <div class="card green darken-4">
-					<div class="card-image" >
-		              <img src="555.jpg">
-		            </div>
-					<div class="card-content white-text" style="margin-top: 0px; ">
-						<span class="card-title center" >顾客退货</span>
-						<p>输入商家订单签名完成退货。</p>
-					</div>
-					<div class="card-action  center" style="padding-bottom: 0px">
-						<div class="row" style="margin-bottom: 0px">
-							<form class="col s12 white-text" style="margin-bottom: 0px">
-								<div class="row">
-									<div class="input-field col s6">
-										<i class="material-icons prefix white-text">list</i>
-										<input id="icon_prefix" type="text" class="validate" style="border-bottom: 1px solid white; box-shadow: 0 1px 0 0 white">
-										<label for="icon_prefix" style="color: white">商家订单签名</label>
-									</div>
-									<p class="waves-effect waves-light btn green" style="margin-top: 24px; margin-left: 0px"><i class="material-icons left">cancel</i>退货</p>
+			<div class="card green darken-4">
+				<div class="card-image" >
+					<img src="555.jpg">
+				</div>
+				<div class="card-content white-text" style="margin-top: 0px; ">
+					<span class="card-title center" >顾客退货</span>
+					<p>输入商家订单签名完成退货。</p>
+				</div>
+				<div class="card-action  center" style="padding-bottom: 0px">
+					<div class="row" style="margin-bottom: 0px">
+						<form class="col s12 white-text" style="margin-bottom: 0px">
+							<div class="row">
+								<div class="input-field col s6">
+									<i class="material-icons prefix white-text">list</i>
+									<input id="icon_prefix" type="text" class="validate" style="border-bottom: 1px solid white; box-shadow: 0 1px 0 0 white">
+									<label for="icon_prefix" style="color: white">商家订单签名</label>
 								</div>
-							</form>
-						</div>  
+								<p class="waves-effect waves-light btn green" style="margin-top: 24px; margin-left: 0px"><i class="material-icons left">cancel</i>退货</p>
+							</div>
+						</form>
+					</div>  
                     <!--<a href="#">这是一个链接</a>
                     <a href="#">这是一个链接</a>-->
                 </div>                          
-        	</div>
+            </div>
+        </div>
     </div>
-</div>
-<!--Import jQuery before materialize.js-->
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
-<script type="text/javascript">
-        $(function () {
-            $("#kk").click(function () {
-                $.ajax({
-	            url:"buy.php",
-	            type:"POST",
-	            data:{
-	            	No:"1"
-	            },
-	            success:function(){
-	            	Materialize.toast('购买成功！', 4000)
-	            }
-        });
-            })
-        })
-     
-</script>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+	<script>
+		
+			$(document).ready(function(){
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0-rc1.js"></script>
-<script type="text/javascript">
-    $(function () {
-            $("#hh").click(function () {
-                $.ajax({
-            url:"search.php",
-            type:"GET",
-            dataType: "text",
-            success: function(data){
-                alert(data);
+		    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+		    	$('.modal').modal();
+		    	$("#kk").click(function () {
+		    		document.getElementById("kk").setAttribute("href","./buy.php"); 
+		    		Materialize.toast('购买成功！', 4000);
+	    		})
 
-            }
-        });
-            })
-        })
-</script>
+	    		$("#hh").click(function () {
+		    		$.ajax({
+		    			url:"search.php",
+		    			type:"GET",
+		    			dataType: "text",
+		    			success: function(data){
+		    				document.getElementById("codebox").innerHTML=data;
+		    				$('#modal1').modal('open');
+		    			}
+		    		});
+		    	})
+
+		  	});
+		
+	</script>
+
 </body>
 </html>

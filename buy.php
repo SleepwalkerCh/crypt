@@ -5,8 +5,10 @@
 	$encrypted = ""; 
 	openssl_private_encrypt($data,$encrypted,$pi_key);//私钥加密
 	$encrypted = base64_encode($encrypted);//
-
-	$file1 = fopen("./js/$data.txt",'w');
-    fwrite($file1,$encrypted);
-    fclose($file1);
+	
+	header("Content-Type: text/plain");
+	header("Accept-Ranges: bytes");
+	header("Accept-Length: ".strlen($encrypted));
+	header("Content-Disposition: attachment; filename=$data.txt");
+	echo $encrypted;
 ?>
