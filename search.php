@@ -1,7 +1,7 @@
 <?php
     $mysql_server_name='localhost'; //改成自己的mysql数据库服务器
-	$mysql_username='shop_boss'; //改成自己的mysql数据库用户名
-	$mysql_password='123123'; 
+	$mysql_username='root'; //改成自己的mysql数据库用户名
+	$mysql_password='root'; 
 	$mysql_database='authorization'; //改成自己的mysql数据库名
 	$number = 11111;
 
@@ -13,7 +13,7 @@
     $num = mysql_affected_rows();
     $a;
     if($num!=0)
-    	$a = mysql_result($result, 0);
+    	$a = hash("md5",mysql_result($result, 0));
     else
     	$a = '没有该商店的授权记录！';
     echo $a;

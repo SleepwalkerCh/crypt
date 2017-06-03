@@ -43,6 +43,7 @@
 					<img src="8.jpg" style="width: 100px; height: 100px" >
 					<br>
  					<a href="#" id="hh" class="waves-effect waves-light btn green"><i class="material-icons left">search</i>Check</a>
+ 					<p id="codebox"></p>
  				</div>
 			</div>
 
@@ -52,7 +53,6 @@
 		        <div class="card green darken-4">
 					<div class="card-image" >
 		              <img src="555.jpg">
-		              <span class="card-title">Card Title</span>
 		            </div>
 					<div class="card-content white-text" style="margin-top: 0px; ">
 						<span class="card-title center" >顾客退货</span>
@@ -84,14 +84,14 @@
         $(function () {
             $("#kk").click(function () {
                 $.ajax({
-            url:"buy.php",
-            type:"POST",
-            data:{
-            	No:"1"
-            },
-            success:function(){
-            	alert("购买成功！");
-            }
+	            url:"buy.php",
+	            type:"POST",
+	            data:{
+	            	No:"1"
+	            },
+	            success:function(){
+	            	Materialize.toast('购买成功！', 4000)
+	            }
         });
             })
         })
@@ -107,7 +107,8 @@
             type:"GET",
             dataType: "text",
             success: function(data){
-                alert(data);//$a的值
+                alert(data);
+
             }
         });
             })

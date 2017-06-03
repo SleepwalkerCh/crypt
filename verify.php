@@ -2,8 +2,8 @@
 	$code=$_POST['city'];
 
 	$mysql_server_name='localhost';
-	$mysql_username='factory_boss'; 
-	$mysql_password='123123'; 
+	$mysql_username='root'; 
+	$mysql_password='root'; 
 	$mysql_database='authorization'; 
 
 	$conn=mysql_connect($mysql_server_name,$mysql_username,$mysql_password) or die("error connecting"); 
