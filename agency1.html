@@ -30,7 +30,7 @@
 					<p>新鲜狗粮<br/>只要998，新鲜狗粮带回家！！！</p>
 				</div>
 				<div class="card-action center">
-					<a class="waves-effect waves-light btn green"><i class="material-icons left">shopping_cart</i>Buy</a>
+					<a href="#" id="kk" class="waves-effect waves-light btn green"><i class="material-icons left">shopping_cart</i>Buy</a>
 				</div>
 			</div>
 			<div class="card green darken-4">
@@ -42,7 +42,7 @@
 				<div class="card-action center">
 					<img src="8.jpg" style="width: 100px; height: 100px" >
 					<br>
- 					<a class="waves-effect waves-light btn green"><i class="material-icons left">search</i>Check</a>
+ 					<a href="#" id="hh" class="waves-effect waves-light btn green"><i class="material-icons left">search</i>Check</a>
  				</div>
 			</div>
 
@@ -80,5 +80,38 @@
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript">
+        $(function () {
+            $("#kk").click(function () {
+                $.ajax({
+            url:"buy.php",
+            type:"POST",
+            data:{
+            	No:"1"
+            },
+            success:function(){
+            	alert("购买成功！");
+            }
+        });
+            })
+        })
+     
+</script>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0-rc1.js"></script>
+<script type="text/javascript">
+    $(function () {
+            $("#hh").click(function () {
+                $.ajax({
+            url:"search.php",
+            type:"GET",
+            dataType: "text",
+            success: function(data){
+                alert(data);//$a的值
+            }
+        });
+            })
+        })
+</script>
 </body>
 </html>

@@ -44,18 +44,18 @@
 				  <!-- Switch -->
 				  <div class="col s12 m4">
 					  <a>店铺1<br></a>
-					  <a class="waves-effect waves-light btn amber" style="margin-top: 10px"><i class="material-icons left">grade</i>授权</a>
-					  <a class="waves-effect waves-light btn orange" style="margin-top: 10px "><i class="material-icons left" >cancel</i>取消</a>
+					  <a href="#" id="grade1" class="waves-effect waves-light btn amber" style="margin-top: 10px"><i class="material-icons left">grade</i>授权</a>
+					  <a href="#" id="cancel1" class="waves-effect waves-light btn orange" style="margin-top: 10px "><i class="material-icons left" >cancel</i>取消</a>
 				  </div>
 				  <div class="col s12 m4">
 					  <a>店铺1<br></a>
-					  <a class="waves-effect waves-light btn amber" style="margin-top: 10px"><i class="material-icons left">grade</i>授权</a>
-					  <a class="waves-effect waves-light btn orange" style="margin-top: 10px "><i class="material-icons left" >cancel</i>取消</a>
+					  <a href="#" id="grade2" class="waves-effect waves-light btn amber" style="margin-top: 10px"><i class="material-icons left">grade</i>授权</a>
+					  <a href="#" id="cancel2" class="waves-effect waves-light btn orange" style="margin-top: 10px "><i class="material-icons left" >cancel</i>取消</a>
 				  </div>
 				  <div class="col s12 m4">
 					  <a>店铺1<br></a>
-					  <a class="waves-effect waves-light btn amber" style="margin-top: 10px"><i class="material-icons left">grade</i>授权</a>
-					  <a class="waves-effect waves-light btn orange" style="margin-top: 10px "><i class="material-icons left" >cancel</i>取消</a>
+					  <a href="#" id="grade3" class="waves-effect waves-light btn amber" style="margin-top: 10px"><i class="material-icons left">grade</i>授权</a>
+					  <a href="#" id="cancel3" class="waves-effect waves-light btn orange" style="margin-top: 10px "><i class="material-icons left" >cancel</i>取消</a>
 				  </div>
 
 				  
@@ -77,5 +77,95 @@
 			type:"POST",
 		})
 	}
+</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0-rc1.js"></script>
+<script type="text/javascript">
+    $(function () {
+            $("#grade1").click(function () {
+                $.ajax({
+            url:"grade1.php",
+            type:"GET",
+            dataType: "text",
+            success: function(data){
+                alert(data);//$a的值
+            }
+        });
+            })
+        })
+</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0-rc1.js"></script>
+<script type="text/javascript">
+    $(function () {
+            $("#grade2").click(function () {
+                $.ajax({
+            url:"grade2.php",
+            type:"GET",
+            dataType: "text",
+            success: function(data){
+                alert(data);//$a的值
+            }
+        });
+            })
+        })
+</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0-rc1.js"></script>
+<script type="text/javascript">
+    $(function () {
+            $("#grade3").click(function () {
+                $.ajax({
+            url:"grade3.php",
+            type:"GET",
+            dataType: "text",
+            success: function(data){
+                alert(data);//$a的值
+            }
+        });
+            })
+        })
+</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0-rc1.js"></script>
+<script type="text/javascript">
+    $(function () {
+            $("#cancel1").click(function () {
+                $.ajax({
+            url:"cancel1.php",
+            type:"GET",
+            dataType: "text",
+            success: function(data){
+                alert(data);//$a的值
+            }
+        });
+            })
+        })
+</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0-rc1.js"></script>
+<script type="text/javascript">
+    $(function () {
+            $("#cancel2").click(function () {
+                $.ajax({
+            url:"cancel2.php",
+            type:"GET",
+            dataType: "text",
+            success: function(data){
+                alert(data);//$a的值
+            }
+        });
+            })
+        })
+</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0-rc1.js"></script>
+<script type="text/javascript">
+    $(function () {
+            $("#cancel3").click(function () {
+                $.ajax({
+            url:"cancel3.php",
+            type:"GET",
+            dataType: "text",
+            success: function(data){
+                alert(data);//$a的值
+            }
+        });
+            })
+        })
 </script>
 </html>
