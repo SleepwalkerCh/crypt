@@ -84,7 +84,7 @@
 									<input id="icon_prefix" type="text" class="validate" style="border-bottom: 1px solid white; box-shadow: 0 1px 0 0 white">
 									<label for="icon_prefix" style="color: white">订单时间</label>
 								</div>
-								<p class="waves-effect waves-light btn light-green" style="margin-top: 0px; margin-left: 0px"><i class="material-icons left">cancel</i>退货</p>
+								<p href="#" id="return" class="waves-effect waves-light btn light-green" style="margin-top: 0px; margin-left: 0px"><i class="material-icons left">cancel</i>退货</p>
 							</div>
 
 						</form>
@@ -105,13 +105,13 @@
 		    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
 		    	$('.modal').modal();
 		    	$("#kk").click(function () {
-		    		document.getElementById("kk").setAttribute("href","./buy.php"); 
+		    		document.getElementById("kk").setAttribute("href","./buy2.php"); 
 		    		Materialize.toast('购买成功！', 4000);
 	    		})
 
 	    		$("#hh").click(function () {
 		    		$.ajax({
-		    			url:"search.php",
+		    			url:"search2.php",
 		    			type:"GET",
 		    			dataType: "text",
 		    			success: function(data){
@@ -120,6 +120,21 @@
 		    			}
 		    		});
 		    	})
+		    	$("#return").click(function () {
+            	sign = $("#icon_prefix1").val();
+            	time = $("#icon_prefix2").val();
+            	var data={},hello1='city1',hello2='city2';  
+                data[hello1]=sign, data[hello2]=time;
+                $.ajax({
+            		url:"return2.php",
+            		type:"POST",
+            		dataType: "text",
+            		data:data,
+            		success: function(data){
+                		alert(data);//$a的值
+            		}
+        		});
+            })
 
 		  	});
 		

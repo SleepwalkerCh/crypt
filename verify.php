@@ -16,7 +16,15 @@
     if($num == 0)
     	$a = '该商店不是授权商店！';
     else
-    	$a = '该商店是授权商店！';
+    {
+    	$number = mysql_result($result, 0);
+    	if($number == 11111)
+    		$a = 'Alice店是授权商店！';
+    	else if($number == 22222)
+    		$a = 'Bob店是授权商店！';
+    	else if($number == 33333)
+    		$a = 'Carol店是授权商店！';
+    }
 	mysql_close($conn);
 	echo $a;
 ?>
