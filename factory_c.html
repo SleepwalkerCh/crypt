@@ -82,20 +82,20 @@
           			<div class="row">
           				<div class="input-field col s4">
                     <i class="material-icons prefix white-text">store</i>
-                    <input id="icon_prefix" type="text" class="validate" style="border-bottom: 1px solid white; box-shadow: 0 1px 0 0 white">
-                    <label for="icon_prefix" style="color: white">店铺名称</label>
+                    <input id="icon_prefix1" type="text" class="validate" style="border-bottom: 1px solid white; box-shadow: 0 1px 0 0 white">
+                    <label for="icon_prefix1" style="color: white">店铺名称</label>
                   </div>
                   <div class="input-field col s4">
                     <i class="material-icons prefix white-text">schedule</i>
-                    <input id="icon_prefix" type="text" class="validate" style="border-bottom: 1px solid white; box-shadow: 0 1px 0 0 white">
-                    <label for="icon_prefix" style="color: white">订单时间</label>
+                    <input id="icon_prefix2" type="text" class="validate" style="border-bottom: 1px solid white; box-shadow: 0 1px 0 0 white">
+                    <label for="icon_prefix2" style="color: white">订单时间</label>
                   </div>
                   <div class="input-field col s4">
           					<i class="material-icons prefix white-text">list</i>
-          					<input id="icon_prefix" type="text" class="validate" style="border-bottom: 1px solid white; box-shadow: 0 1px 0 0 white">
-          					<label for="icon_prefix" style="color: white">商家订单签名</label>
+          					<input id="icon_prefix3" type="text" class="validate" style="border-bottom: 1px solid white; box-shadow: 0 1px 0 0 white">
+          					<label for="icon_prefix3" style="color: white">商家订单签名</label>
           				</div>
-          				<p class="waves-effect waves-light btn amber" style="margin-top: 0px; margin-left: 275px"><i class="material-icons left">cancel</i>退货</p>
+          				<p href="#" id="return" class="waves-effect waves-light btn amber" style="margin-top: 0px; margin-left: 275px"><i class="material-icons left">cancel</i>退货</p>
           			</div>
           		</form>
           	</div>	
@@ -137,6 +137,27 @@
                 		alert(data);//$a的值
             		}
         		});
+            })
+        })
+</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0-rc1.js"></script>
+  <script type="text/javascript">
+      $(function () {
+            $("#return").click(function () {
+              name = $("#icon_prefix1").val();
+              time = $("#icon_prefix2").val();
+              sign = $("#icon_prefix3").val();
+              var data={},hello1='city1',hello2='city2',hello3='city3';  
+                data[hello1]=name, data[hello2]=time, data[hello3]=sign;
+                $.ajax({
+                url:"return.php",
+                type:"POST",
+                dataType: "text",
+                data:data,
+                success: function(data){
+                    alert(data);//$a的值
+                }
+            });
             })
         })
 </script>
