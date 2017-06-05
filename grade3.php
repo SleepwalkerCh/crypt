@@ -1,5 +1,5 @@
 <?php
-	$private_key = "./4-private.pem";
+	$private_key = "./pem/4-private.pem";
 	$pi_key = openssl_pkey_get_private(file_get_contents($private_key));//这个函数可用来判断私钥是否是可用的，可用返回资源id Resource id
 	$data = 'The number of this shop is 33333';//原始数据
 	$encrypted = ""; 

@@ -15,17 +15,21 @@
 	$sql = "select shop_au_code from shop_list where shop_num = $number"; //SQL语句
 	$result = mysql_query($sql, $conn); //查询
 	$num = mysql_affected_rows();
-	$grade;
+
 	if($num != 0)
 		$grade = mysql_result($result, 0);
 	else
 		$grade = 'asdfg';
+	
+	$grade=hash('md5', $grade);
 
 	$public_key = "./pem/1-public.pem";
 	$pu_key = openssl_pkey_get_public(file_get_contents($public_key));//这个函数可用来判断私钥是否是可用的，可用返回资源id Resource id
 	$decrypted = ""; 
+	$sign = base64_decode($sign);
 	openssl_public_decrypt($sign,$decrypted,$pu_key);//私钥加密
-	$decrypted = base64_encode($decrypted);//
+	//echo $decrypted;
+	//
 
 	$v = $time.$grade;
 	$a;
